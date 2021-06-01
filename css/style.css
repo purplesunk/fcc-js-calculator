@@ -1,0 +1,139 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+body { 
+    background-image: linear-gradient(rgb(170, 209, 164), rgb(211, 150, 180));
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.25rem;
+}
+
+/****************
+    Calculator 
+ ****************/
+
+.calculator {
+    box-shadow: 0 0.125em 0.625em hsl(0, 0%, 20%);
+    border-radius: 5px;
+    background-color: hsl(0, 0%, 26%);
+    padding: 0.125em;
+}
+
+.calculator_display {
+    background-color: hsl(180, 5%, 17%);
+    height: 3.8em;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    margin-bottom: 0.125em;
+    padding: 0.75em 1em;
+    text-align: end;
+    color: hsl(0, 0%, 97%);
+    width: 17.25rem;
+    font-size: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    white-space: nowrap;
+}
+
+.equation_display {
+    font-size: 0.9rem;
+    color: hsl(46, 84%, 57%);
+    margin-bottom: 2px;
+    flex-grow: 1;
+}
+
+.calculator_keys {
+    display: grid;
+    grid-template-columns: repeat(4, auto);
+    grid-template-areas: 
+    ". . . ."
+    "seven eight nine clear"
+    "four five six equals"
+    "one two three equals"
+    "zero zero decimal equals";
+    grid-gap: 2px;
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+
+#one {
+    grid-area: one;
+}
+#two {
+    grid-area: two;
+}
+#three {
+    grid-area: three;
+}
+#four {
+    grid-area: four;
+}
+#five {
+    grid-area: five;
+}
+#six {
+    grid-area: six;
+}
+#seven {
+    grid-area: seven;
+}
+#eight {
+    grid-area: eight;
+}
+#nine {
+    grid-area: nine;
+}
+#zero {
+    grid-area: zero;
+    border-bottom-left-radius: 5px;
+}
+#decimal {
+    grid-area: decimal;
+}
+#clear {
+    grid-area: clear;
+    background-color: hsl(18, 54%, 40%);
+}
+#clear:active {
+    background-color: hsl(18, 54%, 20%);
+}
+#equals {
+    grid-area: equals;
+    background-color: hsl(216, 51%, 44%);
+    border-bottom-right-radius: 5px;
+}
+#equals:active {
+    background-color: hsl(216, 51%, 27%);
+}
+
+
+.btn {
+    border: 0;
+    color: white;
+}
+
+.numbers, .operators, #decimal {
+    padding: 0.625em 1em;
+}
+
+.numbers, #decimal {
+    background-color: #5a6063;
+}
+
+.operators {
+    background-color: #43495a;
+}
+
+.numbers:active,
+#decimal:active {
+    background-color: hsl(0, 0%, 70%);
+}
+.operators:active {
+    background-color: hsl(0, 0%, 60%);
+}
