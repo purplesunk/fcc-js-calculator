@@ -1,9 +1,9 @@
 // JS Calculator
 
 const calculator = document.querySelector(".calculator")
+const keys = calculator.querySelector(".calculator_keys")
 const display = calculator.querySelector("#display")
 const equation = calculator.querySelector(".equation_display")
-const keys = calculator.querySelector(".calculator_keys")
 
 let calcState = calculator.dataset.previousKeyType
 let lastOperator = calculator.dataset.lastOperator
@@ -12,12 +12,12 @@ let numbers = []
 let number = ""
 let operators = []
 
+
 keys.addEventListener('click', event => {
     const key = event.target
-    const keyValue = key.textContent
-
     if (!key.closest('button')) return
 
+    const keyValue = key.textContent
 
     if (calcState === "equals") {
         if (!key.classList.contains("operators")) {
@@ -58,7 +58,7 @@ keys.addEventListener('click', event => {
             equation.textContent += "-"
         } else {
             equation.textContent = equation.textContent
-            .replace(/..$/, "") + keyValue
+            .replace(/(\s[÷×]\s.|..)$/, "") + keyValue
             operators.pop()
             operators.push(key.id)
 	    number = ""
@@ -118,7 +118,6 @@ function showOnDisplay(keyValue) {
 
 function calculate(numbers, operators) {
     const newNumbers = numbers.map(num => Number(num))
-    console.log(newNumbers)
     let operator = ""
 
     return newNumbers.reduce(function(result, current, index) {
